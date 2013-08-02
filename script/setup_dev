@@ -35,6 +35,9 @@ if !File.exists?(database_yml)
 
   puts "Migrating test database"
   system "RAILS_ENV=test bundle exec rake db:migrate"
+  
+  puts "Preparing test database"
+  system "RAILS_ENV=test bundle exec rake db:test:prepare"
 end
 
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
